@@ -16,7 +16,7 @@ To build from source, do the following:
 
 3. Build.
 
-4. Double-click the built Web.saver to install.
+4. Double-click the built Web.saver to install. (`/build/WebSaver/Build/Products/Release`)
 
 Notes
 -----
