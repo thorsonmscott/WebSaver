@@ -3,24 +3,20 @@ WebSaver: A WebKit-based Mac OS X screensaver
 
 A Mac OS X screensaver which simply embeds WebKit to display a webpage or JavaScript application. Perfect for Canvas animations.
 
-You can specify a web url as screen saver.
-
-This version includes a simple Preferences sheet.
-
 Instructions
 ------------
 
-Install the pre-built version of WebSaver by double-clicking "WebSaver/build/Release/Web.saver".
-
-Replace "Web.saver/Contents/Resources/index.html" with your own web page or application.
+Build webapp in `/dev` directory. `npm start` will run a gulp task to view the screensaver in a browser, compile sass, etc.
 
 To build from source, do the following:
 
-1. Open WebSaver.xcodeproj in Xcode.
+1. `npm run build` to build webapp for screensaver
 
-2. Build.
+2. Open WebSaver.xcodeproj in Xcode.
 
-3. Double-click the built Web.saver to install.
+3. Build.
+
+4. Double-click the built Web.saver to install.
 
 Notes
 -----
