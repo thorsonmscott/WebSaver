@@ -26,7 +26,8 @@ gulp.task('serve', ['sass', 'babel:watch'], () => {
     server: {
       baseDir: 'dev',
     },
-    open: false
+    open: false,
+    notify: false
   })
 
   gulp.watch('dev/stylesheets/src/**/*.scss', ['sass'])
@@ -71,12 +72,12 @@ gulp.task('build:html', () => {
 })
 
 gulp.task('build:images', () => {
-  return gulp.src('dev/assets/images/*')
+  return gulp.src('dev/assets/**/*')
     .pipe(imagemin({
       progressive: true,
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('Resources/app/assets/images'))
+    .pipe(gulp.dest('Resources/app/assets'))
 })
 
 gulp.task('build:js', () => {
