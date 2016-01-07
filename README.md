@@ -6,6 +6,8 @@ A Mac OS X screensaver which simply embeds WebKit to display a webpage or JavaSc
 Instructions
 ------------
 
+`npm install`
+
 Build webapp in `/dev` directory. `npm start` will run a gulp task to view the screensaver in a browser, compile sass, etc.
 
 To build for installation, do the following:
