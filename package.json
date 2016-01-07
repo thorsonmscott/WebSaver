@@ -26,6 +26,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-spawn-xcodebuild": "^1.0.3",
     "gulp-sync": "^0.1.4",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",

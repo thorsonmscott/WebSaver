@@ -23,7 +23,7 @@ static NSString * const WebScreenSaverModuleName = @"com.thorsonmscott.WebSaver"
         
         [defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:@"", @"url", nil]];
         
-        NSString *indexURL = [[NSURL fileURLWithPath:[[NSBundle bundleForClass:self.class].resourcePath stringByAppendingString:@"/app/index.html"] isDirectory:NO] description];
+        NSString *indexURL = [[NSURL fileURLWithPath:[[NSBundle bundleForClass:self.class].resourcePath stringByAppendingString:@"/dist/index.html"] isDirectory:NO] description];
         
         if (self.isPreview) {
             indexURL = [indexURL stringByAppendingString:@"?preview=true"];

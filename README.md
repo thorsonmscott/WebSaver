@@ -8,15 +8,11 @@ Instructions
 
 Build webapp in `/dev` directory. `npm start` will run a gulp task to view the screensaver in a browser, compile sass, etc.
 
-To build from source, do the following:
+To build for installation, do the following:
 
-1. `npm run build` to build webapp for screensaver
+1. `npm run build` to compile screensaver
 
-2. Open WebSaver.xcodeproj in Xcode.
-
-3. Build.
-
-4. Double-click the built Web.saver to install. (`/build/WebSaver/Build/Products/Release`)
+2. Double-click the built WebSaver.saver to install. (`Release/WebSaver.saver`)
 
 Notes
 -----

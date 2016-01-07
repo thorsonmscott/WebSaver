@@ -20,6 +20,7 @@ const htmlmin = require('gulp-minify-html')
 const imagemin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
 const rimraf = require('rimraf')
+const xcodebuild = require('gulp-spawn-xcodebuild')
 
 gulp.task('serve', ['sass', 'babel:watch'], () => {
   browserSync.init({
@@ -56,19 +57,19 @@ gulp.task('babel:watch', ['babel'], () => {
 })
 
 gulp.task('build:clean', (cb) => {
-  rimraf('./Resources/app', cb)
+  rimraf('./WebSaver/dist', cb)
 })
 
 gulp.task('build:css', ['sass'], () => {
   return gulp.src('dev/stylesheets/*.css')
     .pipe(cssmin({keepSpecialComments: 0, inliner: {timeout: 20000}}))
-    .pipe(gulp.dest('Resources/app/stylesheets'))
+    .pipe(gulp.dest('WebSaver/dist/stylesheets'))
 })
 
 gulp.task('build:html', () => {
   return gulp.src('dev/index.html')
     .pipe(htmlmin())
-    .pipe(gulp.dest('Resources/app'))
+    .pipe(gulp.dest('WebSaver/dist'))
 })
 
 gulp.task('build:images', () => {
@@ -77,18 +78,26 @@ gulp.task('build:images', () => {
       progressive: true,
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('Resources/app/assets'))
+    .pipe(gulp.dest('WebSaver/dist/assets'))
 })
 
 gulp.task('build:js', () => {
   return compileJSProd()
 })
 
+gulp.task('build:xcode', () => {
+  return gulp.src('./')
+    .pipe(xcodebuild('bulid', {
+      buildDir: './'
+    }))
+})
+
 gulp.task('develop', ['serve'])
 gulp.task('default', ['develop'])
 gulp.task('build', gulpsync.sync([
   'build:clean',
-  ['build:css', 'build:html', 'build:images', 'build:js']
+  ['build:css', 'build:html', 'build:images', 'build:js'],
+  'build:xcode'
 ]))
 
 function compileJSDev(watch) {
@@ -133,5 +142,5 @@ function compileJSProd() {
     .pipe(source('application.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest('Resources/app/javascripts'))
+    .pipe(gulp.dest('WebSaver/dist/javascripts'))
 }

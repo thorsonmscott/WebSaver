@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
-Resources
+WebSaver/dist
+Release
+Debug
 
 # Created by https://www.gitignore.io/api/xcode
 
